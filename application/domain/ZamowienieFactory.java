@@ -11,8 +11,7 @@ public class ZamowienieFactory {
 	 * @param idKupujacego
 	 */
 	public Zamowienie utworz(int idKupujacego) {
-		// TODO - implement ZamowienieFactory.utworz
-		throw new UnsupportedOperationException();
+		return new Zamowienie(sekwencjaId.getAndIncrement(), idKupujacego, StatusZamowienia.WSTEPNE);
 	}
 
 	/**
@@ -23,8 +22,7 @@ public class ZamowienieFactory {
 	 * @param pozycje
 	 */
 	public Zamowienie odtworz(int idZamowienia, int idKupujacego, StatusZamowienia status, java.util.List<PozycjaZamowienia> pozycje) {
-		// TODO - implement ZamowienieFactory.odtworz
-		throw new UnsupportedOperationException();
+		return new Zamowienie(idZamowienia, idKupujacego, status, pozycje);
 	}
 
 }

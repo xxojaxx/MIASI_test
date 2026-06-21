@@ -1,3 +1,4 @@
+infrastructure\in\web\ZamowienieControllerFlowIntegrationTest.class
 infrastructure\out\persistence\BazaZamowienAdapterIntegrationTest.class
 infrastructure\out\notification\PowiadomienieAdapterIntegrationTest.class
 architecture\CompileTimeVisibilityTest.class

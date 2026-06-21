@@ -25,6 +25,10 @@ public class Zamowienie {
 		this.status = status;
 	}
 
+	public boolean czySfinalizowane() {
+		return status == StatusZamowienia.SFINALIZOWANE;
+	}
+
 	/**
 	 * 
 	 * @param idZamowienia
@@ -32,8 +36,7 @@ public class Zamowienie {
 	 * @param status
 	 */
 	public Zamowienie(int idZamowienia, int idKupujacego, StatusZamowienia status) {
-		// TODO - implement Zamowienie.Zamowienie
-		throw new UnsupportedOperationException();
+		this(idZamowienia, idKupujacego, status, new ArrayList<>());
 	}
 
 	/**
@@ -44,13 +47,14 @@ public class Zamowienie {
 	 * @param pozycje
 	 */
 	public Zamowienie(int idZamowienia, int idKupujacego, StatusZamowienia status, java.util.List<PozycjaZamowienia> pozycje) {
-		// TODO - implement Zamowienie.Zamowienie
-		throw new UnsupportedOperationException();
+		this.idZamowienia = idZamowienia;
+		this.idKupujacego = idKupujacego;
+		this.status = status;
+		this.pozycje = new ArrayList<>(pozycje);
 	}
 
 	public java.util.List<PozycjaZamowienia> getPozycje() {
-		// TODO - implement Zamowienie.getPozycje
-		throw new UnsupportedOperationException();
+		return new ArrayList<>(pozycje);
 	}
 
 	/**
@@ -58,18 +62,19 @@ public class Zamowienie {
 	 * @param pozycja
 	 */
 	public void dodajPozycje(PozycjaZamowienia pozycja) {
-		// TODO - implement Zamowienie.dodajPozycje
-		throw new UnsupportedOperationException();
+		pozycje.add(pozycja);
 	}
 
 	public float obliczCene() {
-		// TODO - implement Zamowienie.obliczCene
-		throw new UnsupportedOperationException();
+		float suma = 0;
+		for (PozycjaZamowienia pozycja : pozycje) {
+			suma += pozycja.obliczCene();
+		}
+		return suma;
 	}
 
 	public void finalizuj() {
-		// TODO - implement Zamowienie.finalizuj
-		throw new UnsupportedOperationException();
+		this.status = StatusZamowienia.SFINALIZOWANE;
 	}
 
 }

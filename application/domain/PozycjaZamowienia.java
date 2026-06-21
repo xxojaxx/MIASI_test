@@ -30,8 +30,10 @@ class PozycjaZamowienia {
 	}
 
 	public float obliczCene() {
-		// TODO - implement PozycjaZamowienia.obliczCene
-		throw new UnsupportedOperationException();
+		if (sprawdzPromocje()) {
+			return obliczPromocje();
+		}
+		return cena * iloscProduktu;
 	}
 
 	/**
@@ -39,18 +41,16 @@ class PozycjaZamowienia {
 	 * @param promocja
 	 */
 	public void ustawPromocje(Promocja promocja) {
-		// TODO - implement PozycjaZamowienia.ustawPromocje
-		throw new UnsupportedOperationException();
+		this.promocja = promocja;
+		this.cenaPromocyjna = promocja == null ? 0 : promocja.getCenaPromocyjna();
 	}
 
 	public boolean sprawdzPromocje() {
-		// TODO - implement PozycjaZamowienia.sprawdzPromocje
-		throw new UnsupportedOperationException();
+		return promocja != null && promocja.czyDotyczy(iloscProduktu);
 	}
 
 	public float obliczPromocje() {
-		// TODO - implement PozycjaZamowienia.obliczPromocje
-		throw new UnsupportedOperationException();
+		return cenaPromocyjna * iloscProduktu;
 	}
 
 	/**
@@ -61,8 +61,10 @@ class PozycjaZamowienia {
 	 * @param promocja
 	 */
 	public PozycjaZamowienia(int idProduktu, int iloscProduktu, float cena, Promocja promocja) {
-		// TODO - implement PozycjaZamowienia.PozycjaZamowienia
-		throw new UnsupportedOperationException();
+		this.idProduktu = idProduktu;
+		this.iloscProduktu = iloscProduktu;
+		this.cena = cena;
+		ustawPromocje(promocja);
 	}
 
 }

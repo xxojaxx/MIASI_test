@@ -3,7 +3,7 @@ package infrastructure.out.notification;
 import application.port.out.PowiadomieniePort;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PowiadomienieAdapterIntegrationTest {
@@ -16,9 +16,12 @@ class PowiadomienieAdapterIntegrationTest {
 	}
 
 	@Test
-	void sending_notification_is_not_implemented_yet() {
-		PowiadomieniePort port = new PowiadomienieAdapter();
+	void sending_notification_records_message() {
+		PowiadomienieAdapter adapter = new PowiadomienieAdapter();
+		PowiadomieniePort port = adapter;
 
-		assertThrows(UnsupportedOperationException.class, () -> port.powiadomOUkonczeniu(1, 10));
+		port.powiadomOUkonczeniu(1, 10);
+
+		assertEquals("Kupujacy 1 otrzymal powiadomienie o zamowieniu 10.", adapter.getOstatniePowiadomienie());
 	}
 }

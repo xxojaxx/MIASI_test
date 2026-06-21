@@ -19,8 +19,8 @@ public class PozycjaZamowieniaDTO {
 	 * @param iloscProduktu
 	 */
 	public PozycjaZamowieniaDTO(int idProduktu, int iloscProduktu) {
-		// TODO - implement PozycjaZamowieniaDTO.PozycjaZamowieniaDTO
-		throw new UnsupportedOperationException();
+		this.idProduktu = idProduktu;
+		this.iloscProduktu = iloscProduktu;
 	}
 
 }

@@ -1,9 +1,11 @@
 package infrastructure.out.persistence;
 
+import application.domain.Zamowienie;
+import application.domain.ZamowienieFactory;
 import application.port.out.BazaZamowienPort;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BazaZamowienAdapterIntegrationTest {
@@ -16,23 +18,24 @@ class BazaZamowienAdapterIntegrationTest {
 	}
 
 	@Test
-	void saving_order_is_not_implemented_yet() {
+	void adapter_saves_and_loads_order() {
 		BazaZamowienPort port = new BazaZamowienAdapter();
+		Zamowienie zamowienie = new ZamowienieFactory().utworz(1);
 
-		assertThrows(UnsupportedOperationException.class, () -> port.zapisz(null));
+		port.zapisz(zamowienie);
+
+		assertSame(zamowienie, port.pobierz(zamowienie.getIdZamowienia()));
 	}
 
 	@Test
-	void loading_order_is_not_implemented_yet() {
+	void adapter_updates_existing_order() {
 		BazaZamowienPort port = new BazaZamowienAdapter();
+		Zamowienie zamowienie = new ZamowienieFactory().utworz(1);
+		port.zapisz(zamowienie);
 
-		assertThrows(UnsupportedOperationException.class, () -> port.pobierz(10));
-	}
+		zamowienie.finalizuj();
+		port.aktualizuj(zamowienie);
 
-	@Test
-	void updating_order_is_not_implemented_yet() {
-		BazaZamowienPort port = new BazaZamowienAdapter();
-
-		assertThrows(UnsupportedOperationException.class, () -> port.aktualizuj(null));
+		assertSame(zamowienie, port.pobierz(zamowienie.getIdZamowienia()));
 	}
 }

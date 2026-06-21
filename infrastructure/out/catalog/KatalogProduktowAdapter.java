@@ -10,8 +10,12 @@ class KatalogProduktowAdapter implements KatalogProduktowPort {
 	private java.util.Map<Integer, Promocja> promocje = new HashMap<>();
 
 	public KatalogProduktowAdapter() {
-		// TODO - implement KatalogProduktowAdapter.KatalogProduktowAdapter
-		throw new UnsupportedOperationException();
+		produkty.put(1, new ProduktInfo(1, "Ksiazka", 50));
+		produkty.put(2, new ProduktInfo(2, "Kurs online", 120));
+		produkty.put(3, new ProduktInfo(3, "Notatnik", 20));
+
+		promocje.put(1, new Promocja(2, 40));
+		promocje.put(3, new Promocja(5, 15));
 	}
 
 	/**
@@ -19,8 +23,11 @@ class KatalogProduktowAdapter implements KatalogProduktowPort {
 	 * @param idProduktu
 	 */
 	public ProduktInfo pobierzProdukt(int idProduktu) {
-		// TODO - implement KatalogProduktowAdapter.pobierzProdukt
-		throw new UnsupportedOperationException();
+		ProduktInfo produkt = produkty.get(idProduktu);
+		if (produkt == null) {
+			throw new IllegalArgumentException("Nie znaleziono produktu o id: " + idProduktu);
+		}
+		return produkt;
 	}
 
 	/**
@@ -28,8 +35,7 @@ class KatalogProduktowAdapter implements KatalogProduktowPort {
 	 * @param idProduktu
 	 */
 	public Promocja pobierzPromocje(int idProduktu) {
-		// TODO - implement KatalogProduktowAdapter.pobierzPromocje
-		throw new UnsupportedOperationException();
+		return promocje.get(idProduktu);
 	}
 
 }

@@ -3,7 +3,7 @@ package infrastructure.out.payment;
 import application.port.out.PlatnoscPort;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SystemPlatnosciAdapterIntegrationTest {
@@ -14,13 +14,17 @@ class SystemPlatnosciAdapterIntegrationTest {
 	}
 
 	@Test
-	void adapter_constructor_is_not_implemented_yet() {
-		ZewnetrznySystemPlatnosci zewnetrznySystemPlatnosci = new ZewnetrznySystemPlatnosci();
+	void adapter_delegates_successful_payment_to_external_system() {
+		PlatnoscPort port = new SystemPlatnosciAdapter(new ZewnetrznySystemPlatnosci());
 
-		assertThrows(
-				UnsupportedOperationException.class,
-				() -> new SystemPlatnosciAdapter(zewnetrznySystemPlatnosci)
-		);
+		assertTrue(port.zaplac(1, 200));
+	}
+
+	@Test
+	void adapter_rejects_invalid_payment() {
+		PlatnoscPort port = new SystemPlatnosciAdapter(new ZewnetrznySystemPlatnosci());
+
+		assertFalse(port.zaplac(1, 0));
 	}
 
 	@Test

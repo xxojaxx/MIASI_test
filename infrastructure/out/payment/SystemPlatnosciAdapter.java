@@ -11,8 +11,7 @@ class SystemPlatnosciAdapter implements PlatnoscPort {
 	 * @param zewnetrznySystemPlatnosci
 	 */
 	SystemPlatnosciAdapter(ZewnetrznySystemPlatnosci zewnetrznySystemPlatnosci) {
-		// TODO - implement SystemPlatnosciAdapter.SystemPlatnosciAdapter
-		throw new UnsupportedOperationException();
+		this.zewnetrznySystemPlatnosci = zewnetrznySystemPlatnosci;
 	}
 
 	/**
@@ -21,8 +20,7 @@ class SystemPlatnosciAdapter implements PlatnoscPort {
 	 * @param kwota
 	 */
 	public boolean zaplac(int idKupujacego, float kwota) {
-		// TODO - implement SystemPlatnosciAdapter.zaplac
-		throw new UnsupportedOperationException();
+		return zewnetrznySystemPlatnosci.zaplac(idKupujacego, kwota);
 	}
 
 }

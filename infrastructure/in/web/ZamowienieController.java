@@ -11,8 +11,7 @@ public class ZamowienieController {
 	 * @param zamowienieProduktowUseCase
 	 */
 	public ZamowienieController(ZamowienieProduktowUseCase zamowienieProduktowUseCase) {
-		// TODO - implement ZamowienieController.ZamowienieController
-		throw new UnsupportedOperationException();
+		this.zamowienieProduktowUseCase = zamowienieProduktowUseCase;
 	}
 
 	/**
@@ -20,8 +19,8 @@ public class ZamowienieController {
 	 * @param request
 	 */
 	public ZamowienieResponse zamowProdukty(ZamowienieRequest request) {
-		// TODO - implement ZamowienieController.zamowProdukty
-		throw new UnsupportedOperationException();
+		int idZamowienia = zamowienieProduktowUseCase.zamowProdukty(request.getIdKupujacego(), request.getPozycje());
+		return new ZamowienieResponse(idZamowienia, "Zamowienie zostalo zlozone, oplacone i sfinalizowane.");
 	}
 
 }

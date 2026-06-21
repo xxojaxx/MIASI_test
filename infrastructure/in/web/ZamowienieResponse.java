@@ -19,8 +19,8 @@ public class ZamowienieResponse {
 	 * @param komunikat
 	 */
 	public ZamowienieResponse(int idZamowienia, String komunikat) {
-		// TODO - implement ZamowienieResponse.ZamowienieResponse
-		throw new UnsupportedOperationException();
+		this.idZamowienia = idZamowienia;
+		this.komunikat = komunikat;
 	}
 
 }

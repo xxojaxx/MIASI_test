@@ -6,7 +6,7 @@ import application.port.in.*;
 public class ZamowienieRequest {
 
 	private int idKupujacego;
-	private Collection<PozycjaZamowieniaDTO> pozycje;
+	private List<PozycjaZamowieniaDTO> pozycje;
 
 	public int getIdKupujacego() {
 		return this.idKupujacego;
@@ -17,14 +17,13 @@ public class ZamowienieRequest {
 	 * @param idKupujacego
 	 * @param pozycje
 	 */
-	public ZamowienieRequest(int idKupujacego, List pozycje) {
-		// TODO - implement ZamowienieRequest.ZamowienieRequest
-		throw new UnsupportedOperationException();
+	public ZamowienieRequest(int idKupujacego, List<PozycjaZamowieniaDTO> pozycje) {
+		this.idKupujacego = idKupujacego;
+		this.pozycje = new ArrayList<>(pozycje);
 	}
 
-	public List getPozycje() {
-		// TODO - implement ZamowienieRequest.getPozycje
-		throw new UnsupportedOperationException();
+	public List<PozycjaZamowieniaDTO> getPozycje() {
+		return new ArrayList<>(pozycje);
 	}
 
 }

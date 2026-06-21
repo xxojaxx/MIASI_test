@@ -25,8 +25,9 @@ public class ProduktInfo {
 	 * @param cena
 	 */
 	public ProduktInfo(int idProduktu, String nazwa, float cena) {
-		// TODO - implement ProduktInfo.ProduktInfo
-		throw new UnsupportedOperationException();
+		this.idProduktu = idProduktu;
+		this.nazwa = nazwa;
+		this.cena = cena;
 	}
 
 }

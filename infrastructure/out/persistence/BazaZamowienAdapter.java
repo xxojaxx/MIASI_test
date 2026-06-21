@@ -13,8 +13,7 @@ class BazaZamowienAdapter implements BazaZamowienPort {
 	 * @param zamowienie
 	 */
 	public void zapisz(Zamowienie zamowienie) {
-		// TODO - implement BazaZamowienAdapter.zapisz
-		throw new UnsupportedOperationException();
+		zamowienia.put(zamowienie.getIdZamowienia(), zamowienie);
 	}
 
 	/**
@@ -22,8 +21,11 @@ class BazaZamowienAdapter implements BazaZamowienPort {
 	 * @param idZamowienia
 	 */
 	public Zamowienie pobierz(int idZamowienia) {
-		// TODO - implement BazaZamowienAdapter.pobierz
-		throw new UnsupportedOperationException();
+		Zamowienie zamowienie = zamowienia.get(idZamowienia);
+		if (zamowienie == null) {
+			throw new IllegalArgumentException("Nie znaleziono zamowienia o id: " + idZamowienia);
+		}
+		return zamowienie;
 	}
 
 	/**
@@ -31,8 +33,10 @@ class BazaZamowienAdapter implements BazaZamowienPort {
 	 * @param zamowienie
 	 */
 	public void aktualizuj(Zamowienie zamowienie) {
-		// TODO - implement BazaZamowienAdapter.aktualizuj
-		throw new UnsupportedOperationException();
+		if (!zamowienia.containsKey(zamowienie.getIdZamowienia())) {
+			throw new IllegalArgumentException("Nie znaleziono zamowienia o id: " + zamowienie.getIdZamowienia());
+		}
+		zamowienia.put(zamowienie.getIdZamowienia(), zamowienie);
 	}
 
 }

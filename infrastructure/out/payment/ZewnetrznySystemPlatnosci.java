@@ -8,8 +8,7 @@ class ZewnetrznySystemPlatnosci {
 	 * @param kwota
 	 */
 	boolean zaplac(int idKupujacego, float kwota) {
-		// TODO - implement ZewnetrznySystemPlatnosci.zaplac
-		throw new UnsupportedOperationException();
+		return idKupujacego > 0 && kwota > 0;
 	}
 
 }

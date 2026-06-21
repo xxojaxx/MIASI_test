@@ -18,8 +18,7 @@ public class Promocja {
 	 * @param ilosc
 	 */
 	public boolean czyDotyczy(int ilosc) {
-		// TODO - implement Promocja.czyDotyczy
-		throw new UnsupportedOperationException();
+		return ilosc >= minimalnaIlosc;
 	}
 
 	/**
@@ -28,8 +27,8 @@ public class Promocja {
 	 * @param cenaPromocyjna
 	 */
 	public Promocja(int minimalnaIlosc, float cenaPromocyjna) {
-		// TODO - implement Promocja.Promocja
-		throw new UnsupportedOperationException();
+		this.minimalnaIlosc = minimalnaIlosc;
+		this.cenaPromocyjna = cenaPromocyjna;
 	}
 
 }
