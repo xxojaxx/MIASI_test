@@ -1,0 +1,7 @@
+infrastructure\out\persistence\BazaZamowienAdapterIntegrationTest.class
+infrastructure\out\notification\PowiadomienieAdapterIntegrationTest.class
+architecture\CompileTimeVisibilityTest.class
+architecture\ArchitectureRulesTest.class
+infrastructure\out\catalog\KatalogProduktowAdapterIntegrationTest.class
+infrastructure\out\payment\SystemPlatnosciAdapterIntegrationTest.class
+architecture\ClassVisibilityRulesTest.class
